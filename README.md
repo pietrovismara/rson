@@ -1,3 +1,12 @@
+# Setup
+
+Debian/Ubuntu/Mint: Grab the `.deb` file from releases.
+
+Any other OS: download and compile with rustc/cargo.
+
+
+# Usage
+
 ### Prettify
 
 **file.json**
