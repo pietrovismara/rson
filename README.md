@@ -114,3 +114,23 @@ $ cat file.json | rson every 'verified,==,b:true'
 ```json
 false
 ```
+
+### Get Array length
+
+**file.json**
+
+```json
+[0, 0, 0, 0, 0, 0]
+```
+
+**commands**
+
+```bash
+$ cat file.json | rson length
+```
+
+**result**
+
+```json
+6
+```
