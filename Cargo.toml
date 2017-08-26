@@ -1,0 +1,25 @@
+[package]
+name = "rson"
+version = "0.1.0"
+authors = ["pietrovismara <pp.vismara@gmail.com>"]
+description = "Inspect any JSON file using the command line. Fast with huge files."
+repository = "https://github.com/pietrovismara/rson"
+keywords = ["json", "inspect"]
+license = "MIT"
+
+[profile.dev]
+opt-level = 2
+debug = true
+
+[profile.release]
+opt-level = 3
+debug = false
+
+[profile.test]
+opt-level = 0
+debug = true
+
+
+[dependencies]
+serde_json = "1.0"
+clap = "~2.19.0"
