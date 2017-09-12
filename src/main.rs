@@ -189,7 +189,7 @@ fn pick(matches: ArgMatches) -> Result<String, Box<Error>> {
 }
 
 fn get(matches: ArgMatches) -> Result<String, Box<Error>> {
-    let v: serde_json::Value = prepare_object_data()?;
+    let v: serde_json::Value = prepare_generic_data()?;
 
     let submatches = matches.subcommand_matches("get").unwrap();
     let key: &str = submatches.value_of("path").unwrap();
@@ -312,7 +312,7 @@ fn find(matches: ArgMatches) -> Result<String, Box<Error>> {
 
 fn length(_matches: ArgMatches) -> Result<String, Box<Error>> {
     let v = prepare_array_data()?;
-    let v = v.as_array().unwrap();    
+    let v = v.as_array().unwrap();
 
     Ok(serde_json::to_string(&v.len())?)
 }
@@ -343,8 +343,15 @@ fn prepare_object_data() -> Result<serde_json::Value, Box<Error>> {
     let v: serde_json::Value = serde_json::from_str(&buff)?;
 
     if !v.is_object() {
-        return Err(From::from("Expected Array"));
+        return Err(From::from("Expected Object"));
     }
+
+    Ok(v)
+}
+
+fn prepare_generic_data() -> Result<serde_json::Value, Box<Error>> {
+    let buff: String = read_stdin()?;
+    let v: serde_json::Value = serde_json::from_str(&buff)?;
 
     Ok(v)
 }
