@@ -1,6 +1,6 @@
 [package]
 name = "rson"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["pietrovismara <pp.vismara@gmail.com>"]
 description = "Inspect any JSON file using the command line. Fast with huge files."
 repository = "https://github.com/pietrovismara/rson"
